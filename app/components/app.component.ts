@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `
-        <nav>
-            <a routerLink="/dashboard">Dashboard</a>
-        </nav>
+        <header>
+            <mtg-top-nav></mtg-top-nav>
+        </header>
         
-        <router-outlet></router-outlet>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
     `
 })
 

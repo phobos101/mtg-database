@@ -9,6 +9,7 @@ import './rxjs-extensions';
 
 // Components
 import { AppComponent } from './components/app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // Services
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
     ],
     declarations: [
         AppComponent,
+        NavbarComponent,
         DashboardComponent
     ],
     providers: [CardSearchService],

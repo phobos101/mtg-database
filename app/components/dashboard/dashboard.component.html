@@ -1,12 +1,45 @@
-<h3>MTG Dashboard</h3>
+<div class="container">
 
-<input
-    #searchBox
-    (keyup)="search(searchBox.value)"
-    type="search"
-    placeholder="Card name"
-/>
+    <div class="row mt-3">
+        <div class="col-xs-12">
+            <h3 class="text-xs-center">MTG Dashboard</h3>
+        </div>
+    </div>
 
-<div *ngFor="let card of cards | async">
-    {{card.name}}
+    <div class="row mt-2">
+        <div class="col-xs-12">
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input
+                            #searchBox
+                            (keyup)="search(searchBox.value)"
+                            type="search"
+                            class="form-control"
+                            placeholder="Card name"
+                        />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-xs-12 col-lg-6 col-xl-4" *ngFor="let card of cards | async">
+            <div class="card text-xs-center" *ngIf="card.imageUrl">
+                <div class="card-header">
+                    {{card.name}} - mana: {{card.cmc}}
+                </div>
+                <div class="card-block">
+                    <p *ngIf="card.power">Power: {{card.power}}</p>
+                    <p *ngIf="card.toughness">Toughness: {{card.toughness}}</p>
+                    <img *ngIf="card.imageUrl" [src]="card.imageUrl">
+                </div>
+                <div class="card-footer text-muted">
+                    {{card.flavor}}
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
