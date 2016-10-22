@@ -1,1 +1,12 @@
 <h3>MTG Dashboard</h3>
+
+<input
+    #searchBox
+    (keyup)="search(searchBox.value)"
+    type="search"
+    placeholder="Card name"
+/>
+
+<div *ngFor="let card of cards | async">
+    {{card.name}}
+</div>
