@@ -6,14 +6,14 @@ import { Card } from '../models/card';
 
 @Injectable()
 export class CardSearchService {
+    private API_PATH: string = 'https://api.magicthegathering.io/v1'
 
     constructor(private http: Http) {}
 
     search(term: string): Observable<Card[]> {
-        const url: string = 'https://api.magicthegathering.io/v1'
         return this.http
-                   .get(`${url}/cards?name=${term}`)
-                   .map((res: Response) => res.json().data as Card[]);
+                   .get(`${this.API_PATH}/cards?name=${term}`)
+                   .map((res: Response) => res.json().cards as Card[]);
     }
 
 }
